@@ -9,7 +9,6 @@ const InputComponent = ({
                             className,
                             label,
                             error,
-                            maxlength,
                             size
                         }) => {
     return (
@@ -21,7 +20,6 @@ const InputComponent = ({
                 value={value}
                 onChange={onChange}
                 name={name}
-                maxlength={maxlength}
                 size={size}
             />
             {error && <span>{error}</span>}
