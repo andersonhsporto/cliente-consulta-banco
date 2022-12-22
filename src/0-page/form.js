@@ -4,7 +4,8 @@ import InputComponent from "../1-component/input/inputComponent";
 import ButtonComponent from "../1-component/buttom/buttonComponent";
 import BalanceComponent from "../1-component/balance/balanceComponent";
 import HandlerForm from "../3-service/handlerForm";
-import {getAccountById, getOperatorName} from "../3-service/rest";
+import {getAccountById} from "../3-service/rest";
+import Table from "../1-component/table/table";
 
 const Form = () => {
 
@@ -14,17 +15,14 @@ const Form = () => {
     const operatorName = HandlerForm();
 
     const [balance, setBalance] = React.useState();
+    const [transactions, setTransactions] = React.useState();
 
     async function getBalance() {
-        console.log(account.value);
         const accountData = await getAccountById(account.value);
-        console.log(accountData.data.balance);
-
+        console.log(accountData.data);
+        console.log("DTO " + accountData.data.transfers);
         setBalance(accountData.data.balance);
-
-
-
-
+        setTransactions(accountData.data.transfers);
     }
 
     function handleSubmit(event) {
@@ -45,10 +43,10 @@ const Form = () => {
                 <ButtonComponent onClick={() => handleSubmit()} label={'Pesquisar'}/>
             </div>
             < BalanceComponent total={balance} current={balance}/>
+            < Table data={transactions} />
         </div>
     );
 
 }
-
 
 export default Form
