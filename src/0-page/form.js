@@ -23,6 +23,7 @@ const Form = () => {
     async function getBalance(value) {
         const accountData = await getAccountById(account.value, value);
         setTransactions(accountData.data.transfers);
+        setBalance(accountData.data.balance);
         setMax(Math.ceil(accountData.headers.get('x-total-count') / 4));
     }
 
