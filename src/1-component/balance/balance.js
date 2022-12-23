@@ -6,11 +6,11 @@ const BalanceComponent = ({total, current}) => {
             <thead>
             <tr>
                 <th>Saldo total:
-                <span>
+                    <span>
                         {total}
                     </span></th>
                 <th>Saldo no período:
-                <span>
+                    <span>
                         {current}
                     </span></th>
             </tr>
