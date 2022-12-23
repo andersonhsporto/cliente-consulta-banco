@@ -1,11 +1,11 @@
 import React from 'react';
 import Pagination from '@mui/material/Pagination';
 
-const Pagination = ({
-                        max,
-                        page,
-                        onChange,
-                    }) => {
+const PaginationComponent = ({
+                                 max,
+                                 page,
+                                 onChange,
+                             }) => {
     return (
         <Pagination
             count={max}
@@ -16,4 +16,4 @@ const Pagination = ({
         />);
 }
 
-export default Pagination;
+export default PaginationComponent;
