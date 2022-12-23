@@ -20,19 +20,19 @@ const Form = () => {
     const [page, setPage] = React.useState(1);
     const [max, setMax] = React.useState(1);
 
-    async function getBalance() {
-        const accountData = await getAccountById(account.value, page);
+    async function getBalance(value) {
+        const accountData = await getAccountById(account.value, value);
         setTransactions(accountData.data.transfers);
         setMax(Math.ceil(accountData.headers.get('x-total-count') / 4));
     }
 
     async function changePage(event, value) {
         setPage(value);
-        await getBalance();
+        await getBalance(value);
     }
 
     function handleSubmit(event) {
-        getBalance();
+        getBalance(page);
     }
 
     return (
@@ -46,7 +46,7 @@ const Form = () => {
                 <Input label={'Data de início: '} type={'date'}/>
                 <Input label={'Data de fim: '} type={'date'}/>
                 <Input label={'Nome do operador transacionado: '} type={'text'}/>
-                <Button onClick={() => handleSubmit()} value={'Pesquisar'}/>
+                <Button onClick={() => handleSubmit()} value={'Buscar'}/>
             </div>
             <Balance total={balance} current={balance}/>
             <Table data={transactions}/>
