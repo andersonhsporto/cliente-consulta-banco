@@ -6,7 +6,7 @@ import Balance from "../1-component/balance/balance";
 import HandlerForm from "../3-service/handlerForm";
 import Table from "../1-component/table/table";
 import PaginationComponent from "../1-component/pagination/pagination";
-import {getAccountById} from "../3-service/rest";
+import {factoryRestRequest, getRequest} from "../3-service/rest";
 
 const Form = () => {
 
@@ -20,8 +20,16 @@ const Form = () => {
     const [page, setPage] = React.useState(1);
     const [max, setMax] = React.useState(1);
 
-    async function getBalance(value) {
-        const accountData = await getAccountById(account.value, value);
+    async function makeRequest(value) {
+        let restRequest = factoryRestRequest(
+            account.value,
+            value,
+            operatorName.value,
+            startDate.value,
+            endDate.value
+        );
+
+        const accountData = await getRequest(restRequest);
         setTransactions(accountData.data.transfers);
         setBalance(accountData.data.balance);
         setMax(Math.ceil(accountData.headers.get('x-total-count') / 4));
@@ -29,11 +37,11 @@ const Form = () => {
 
     async function changePage(event, value) {
         setPage(value);
-        await getBalance(value);
+        await makeRequest(value);
     }
 
     function handleSubmit(event) {
-        getBalance(page);
+        makeRequest(page);
     }
 
     return (
@@ -44,9 +52,9 @@ const Form = () => {
             </p>
             <div className={style.header}>
                 <Input label={'Numero da conta: '} type={'text'} size={4} {...account}/>
-                <Input label={'Data de início: '} type={'date'}/>
-                <Input label={'Data de fim: '} type={'date'}/>
-                <Input label={'Nome do operador transacionado: '} type={'text'}/>
+                <Input label={'Data de início: '} type={'date'} {...startDate}/>
+                <Input label={'Data de fim: '} type={'date'} {...endDate}/>
+                <Input label={'Nome do operador transacionado: '} type={'text'} {...operatorName}/>
                 <Button onClick={() => handleSubmit()} value={'Buscar'}/>
             </div>
             <Balance total={balance} current={balance}/>
@@ -54,7 +62,6 @@ const Form = () => {
             <PaginationComponent max={max} page={page} onChange={(event, value) => changePage(event, value)}/>
         </div>
     );
-
 }
 
 export default Form

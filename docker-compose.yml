@@ -1,0 +1,11 @@
+services:
+  app:
+    image: 'banco-client-v1:latest'
+    container_name: client-banco
+    build:
+      context: .
+    ports:
+      - '3000:3000'
+
+volumes:
+  volumes:
