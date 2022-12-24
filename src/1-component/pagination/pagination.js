@@ -1,5 +1,6 @@
 import React from 'react';
 import Pagination from '@mui/material/Pagination';
+import style from './pagination.module.css'
 
 const PaginationComponent = ({
                                  max,
@@ -7,13 +8,16 @@ const PaginationComponent = ({
                                  onChange,
                              }) => {
     return (
-        <Pagination
-            count={max}
-            page={page}
-            onChange={onChange}
-            showFirstButton
-            showLastButton
-        />);
+        <div className={style.page}>
+            <Pagination
+                count={max}
+                page={page}
+                onChange={onChange}
+                showFirstButton
+                showLastButton
+                variant="outlined" shape="rounded"
+            />
+        </div>);
 }
 
 export default PaginationComponent;
