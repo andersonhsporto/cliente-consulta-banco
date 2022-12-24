@@ -3,10 +3,10 @@ import style from './form.module.css';
 import Input from "../1-component/input/input";
 import Button from "../1-component/buttom/button";
 import Balance from "../1-component/balance/balance";
-import HandlerForm from "../3-service/handlerForm";
+import HandlerForm from "../2-service/handlerForm";
 import Table from "../1-component/table/table";
 import PaginationComponent from "../1-component/pagination/pagination";
-import {factoryRestRequest, getRequest} from "../3-service/rest";
+import {factoryRestRequest, getRequest} from "../2-service/rest";
 
 const Form = () => {
 
