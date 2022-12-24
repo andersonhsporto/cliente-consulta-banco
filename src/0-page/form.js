@@ -7,6 +7,7 @@ import HandlerForm from "../2-service/handlerForm";
 import Table from "../1-component/table/table";
 import PaginationComponent from "../1-component/pagination/pagination";
 import {factoryRestRequest, getRequest} from "../2-service/rest";
+import Footer from "../1-component/footer/footer";
 
 const Form = () => {
 
@@ -60,6 +61,7 @@ const Form = () => {
             <Balance total={balance} current={balance}/>
             <Table data={transactions}/>
             <PaginationComponent max={max} page={page} onChange={(event, value) => changePage(event, value)}/>
+            <Footer/>
         </div>
     );
 }
