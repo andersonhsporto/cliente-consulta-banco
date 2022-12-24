@@ -1,5 +1,6 @@
 import React from 'react';
 import DataTable from 'react-data-table-component';
+import "./table.css";
 
 const Table = ({
                    data,
@@ -11,7 +12,7 @@ const Table = ({
             selector: row => row.transferDate,
         },
         {
-            name: 'Valentia ',
+            name: 'Valor ',
             selector: row => row.value,
         },
         {
@@ -19,7 +20,7 @@ const Table = ({
             selector: row => row.type,
         },
         {
-            name: 'Nome operador transacionado ',
+            name: 'Nome do Operador ',
             selector: row => row.operatorName,
         },
     ];

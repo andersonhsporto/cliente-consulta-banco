@@ -1,4 +1,5 @@
 import React from "react";
+import style from './input.module.css'
 
 const Input = ({
                    type,
@@ -12,7 +13,7 @@ const Input = ({
                    size
                }) => {
     return (
-        <div className={className}>
+        <div className={style}>
             <label>{label}</label>
             <input
                 type={type}

@@ -1,12 +1,16 @@
 .container {
     display: flex;
     flex-direction: column;
-    height: 70vh;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 20px;
 }
 
 .header {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background-color: brown;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100px;
+    width: 700px;
 }
+

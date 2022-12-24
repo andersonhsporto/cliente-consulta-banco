@@ -7,6 +7,7 @@ import HandlerForm from "../2-service/handlerForm";
 import Table from "../1-component/table/table";
 import PaginationComponent from "../1-component/pagination/pagination";
 import {factoryRestRequest, getRequest} from "../2-service/rest";
+import Footer from "../1-component/footer/footer";
 
 const Form = () => {
 
@@ -46,20 +47,19 @@ const Form = () => {
 
     return (
         <div className={style.container}>
-            <h2>Form</h2>
-            <p>
-                lorem ipsum dolor sit amet
-            </p>
+            <h2>Extrato</h2>
             <div className={style.header}>
-                <Input label={'Numero da conta: '} type={'text'} size={4} {...account}/>
-                <Input label={'Data de início: '} type={'date'} {...startDate}/>
-                <Input label={'Data de fim: '} type={'date'} {...endDate}/>
-                <Input label={'Nome do operador transacionado: '} type={'text'} {...operatorName}/>
-                <Button onClick={() => handleSubmit()} value={'Buscar'}/>
+                <Input label={'Número da Conta: '} type={'text'} size={8} {...account}/>
+                <Input label={'Data de Início: '} type={'date'} {...startDate}/>
+                <Input label={'Data de Fim: '} type={'date'} {...endDate}/>
+                <Input label={'Nome do Operador: '} type={'text'} {...operatorName}/>
             </div>
+
+            <Button onClick={() => handleSubmit()} value={'Buscar'}/>
             <Balance total={balance} current={balance}/>
             <Table data={transactions}/>
             <PaginationComponent max={max} page={page} onChange={(event, value) => changePage(event, value)}/>
+            <Footer/>
         </div>
     );
 }

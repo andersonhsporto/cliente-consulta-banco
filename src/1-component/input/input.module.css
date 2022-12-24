@@ -1,0 +1,28 @@
+input, label {
+    display: block;
+}
+
+input {
+    min-height: 20px;
+    letter-spacing: .5px;
+    border: 1px solid #ccc;
+    text-align: center;
+    color: dimgrey;
+}
+
+input:valid {
+    border-color: grey;
+}
+
+input:focus {
+    outline: none;
+    border-color: #cccccc;
+}
+
+label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #666666;
+    margin-bottom: 5px;
+    text-align: left;
+}
