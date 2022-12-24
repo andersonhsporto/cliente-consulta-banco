@@ -23,6 +23,12 @@ information.
 ### `npm run local`
 
 Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
+
+This build will use local.env file for environment variables.
 
 ### `npm run build`
 
@@ -36,7 +42,7 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ### `docker-compose up`
 
-Builds the app for production to the `build` folder.\
+Build the container and run the app in the production mode.\
 
 ### `npm run eject`
 
